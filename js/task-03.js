@@ -12,3 +12,15 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+
+const modifiedList = images.map((image) => {
+  const liElement = document.createElement('li');
+  liElement.insertAdjacentHTML('afterbegin', `<img src="${image.url}" alt="${image.alt}" width="100" height="100">`);
+  return liElement;
+});
+
+const ulElement = document.querySelector('.gallery');
+
+ulElement.append(...modifiedList);
+ulElement.style.cssText = 'display: flex;'
