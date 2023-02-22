@@ -13,14 +13,13 @@ const images = [
   },
 ];
 
-
-const modifiedList = images.map((image) => {
-  const liElement = document.createElement('li');
-  liElement.insertAdjacentHTML('afterbegin', `<img src="${image.url}" alt="${image.alt}" width="100" height="100">`);
-  return liElement;
-});
-
 const ulElement = document.querySelector('.gallery');
 
-ulElement.append(...modifiedList);
-ulElement.style.cssText = 'display: flex;'
+const galleryItemsEl = images
+  .map(
+    ({ url, alt }) =>
+      `<li class = gallery__item><img class = gallery__image src = "${url}" alt = "${alt}"></li>`
+  )
+  .join("");
+
+ulElement.insertAdjacentHTML('beforeend', galleryItemsEl);
