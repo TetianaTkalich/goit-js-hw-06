@@ -6,11 +6,11 @@ form.addEventListener('submit', function (event) {
         elements: { email, password },
     } = event.currentTarget;
 
-    if (email.value == "") {
+    if (email.value === "") {
         return alert('Email field is empty!!!')
     }
 
-    if (password.value == "") {
+    if (password.value === "") {
         return alert("Password is empty!!!")
     }
     console.log({email: email.value, password: password.value});
